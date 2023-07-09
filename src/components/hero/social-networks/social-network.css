@@ -1,0 +1,28 @@
+.social-network-buttons {
+  margin: 80px 0 20px 0;
+}
+
+.social-network-buttons button{
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: white;
+  font-weight: medium;
+  width: 60pt;
+  text-align: center;
+}
+
+.social-network-buttons button:not(:last-child) {
+  margin-right: 50px;
+}
+
+.social-network-buttons .social-icon {
+  fill: #ffffff;
+  width: 40px;
+  margin-bottom: 2pt;
+}
+
+.social-network-buttons span {
+  font-weight: 600;
+}
