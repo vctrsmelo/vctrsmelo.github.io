@@ -21,15 +21,21 @@ const SocialLinks: React.FC = () => {
   return (
     <div className="social-network-buttons">
       <button onClick={handleLinkedInClick}>
-        <LinkedInIcon className="social-icon"/>
+        <div style={{width: "100%" }}>
+          <LinkedInIcon className="social-icon"/>
+        </div>
         <span>Linkedin</span>
       </button>
       <button onClick={handleGithubClick}>
-        <GithubIcon className="social-icon"/>
+        <div style={{width: "100%" }}>
+          <GithubIcon className="social-icon"/>
+        </div>
         <span>Github</span>
       </button>
       <button onClick={handleMediumClick}>
-        <MediumIcon className="social-icon"/>
+        <div style={{width: "100%" }}>
+          <MediumIcon className="social-icon"/>
+        </div>
         <span>Medium</span>
       </button>
     </div>
