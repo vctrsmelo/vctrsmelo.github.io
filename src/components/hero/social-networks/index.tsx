@@ -2,6 +2,7 @@ import React from 'react'
 import { ReactComponent as LinkedInIcon } from '../../../static/linkedin.svg'
 import { ReactComponent as GithubIcon } from '../../../static/github.svg'
 import { ReactComponent as MediumIcon } from '../../../static/medium.svg'
+import { ReactComponent as LeetCodeIcon } from '../../../static/leetcode.svg'
 import './social-network.css'
 
 const SocialLinks: React.FC = () => {
@@ -18,6 +19,10 @@ const SocialLinks: React.FC = () => {
     window.open('https://medium.com/@victorsmelopoa', '_blank')
   }
 
+  const handleLeetCodeClick = () => {
+    window.open('https://leetcode.com/vctrsmelo/', '_blank')
+  }
+
   return (
     <div className="social-network-buttons">
       <button onClick={handleLinkedInClick}>
@@ -31,6 +36,12 @@ const SocialLinks: React.FC = () => {
           <GithubIcon className="social-icon"/>
         </div>
         <span>Github</span>
+      </button>
+      <button onClick={handleLeetCodeClick}>
+        <div style={{width: "100%" }}>
+          <LeetCodeIcon className="social-icon"/>
+        </div>
+        <span>LeetCode</span>
       </button>
       <button onClick={handleMediumClick}>
         <div style={{width: "100%" }}>
