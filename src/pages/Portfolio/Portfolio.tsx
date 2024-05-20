@@ -21,42 +21,60 @@ const projects: ProjectModel[] = [
     {
       title: 'Apple Watch Breath Replica',
       media: { type: 'image', url: 'https://raw.githubusercontent.com/vctrsmelo/Breathe-Animation-Replica/master/demo.gif' },
-      skills: ['iOS', 'Animation', 'Swift', 'SwiftUI'],
+      skills: ['iOS', 'Swift', 'SwiftUI'],
       description: 'My implementation of the breath animation in SwiftUI.',
       links: [{ title: 'Github', url: 'https://github.com/vctrsmelo/Breathe-Animation-Replica' }],
     },
+    {
+      title: 'My Personal Website',
+      media: { type: 'image', url: 'https://raw.githubusercontent.com/vctrsmelo/vctrsmelo.github.io/main/images/home.png' },
+      skills: ['React', 'TypeScript'],
+      description: 'An static website implemented using React, Typescript and MaterialUI. I decided for a static website so I could host it for free using Github Pages.',
+      links: [{ title: 'Github', url: 'https://github.com/vctrsmelo/vctrsmelo.github.io/tree/main' }],
+    },
     // Add more projects as needed
-  ];
+];
 
-  const PortfolioAlert = () => {
-    return (
-      <Box my={4}>
-        <Alert
-          severity="info"
-          icon={false}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            backgroundColor: 'rgba(0, 123, 255, 0.1)', // Light blue background for visibility
-            padding: 2,
-            borderRadius: 2,
-          }}
-        >
-          <Typography variant="body1">
-            I'm still working on this page during my free time. Hopefully soon I'll display all my side projects here, but for now feel free to check my Github for other projects.
-          </Typography>
-        </Alert>
-      </Box>
-    );
-  };
 
-const initialSkillsState: Record<string, boolean> = projects
-  .flatMap(project => project.skills)
+const skillCounts: { [key: string]: number } = {};
+
+  projects.forEach(project => {
+    project.skills.forEach(skill => {
+      skillCounts[skill] = (skillCounts[skill] || 0) + 1;
+    });
+  });
+  
+// Convert the skillCounts object into an array of [skill, count] pairs, then sort by count
+const sortedSkills = Object.entries(skillCounts).sort((a, b) => b[1] - a[1]);
+  
+const initialSkillsState: Record<string, boolean> = sortedSkills
   .reduce((acc, skill) => {
-      acc[skill] = false
+      acc[skill[0]] = false
       return acc
 }, {} as Record<string, boolean>)
+
+const PortfolioAlert = () => {
+  return (
+    <Box my={4}>
+      <Alert
+        severity="info"
+        icon={false}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          backgroundColor: 'rgba(0, 123, 255, 0.1)', // Light blue background for visibility
+          padding: 2,
+          borderRadius: 2,
+        }}
+      >
+        <Typography variant="body1">
+          I'm still working on this page during my free time. Hopefully soon I'll display all my side projects here, but for now feel free to check my Github for other projects.
+        </Typography>
+      </Alert>
+    </Box>
+  );
+};
 
 export default (props: any) => {
 

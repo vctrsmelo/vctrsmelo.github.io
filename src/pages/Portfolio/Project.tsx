@@ -9,42 +9,55 @@ const Project = ({ project }: { project: ProjectModel }) => {
 
     return (
         <Grid item xs={12} sm={6} md={4}>
-            <Card>
+            <Card
+                sx={{
+                    flex: '1 1 30%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    padding: 1
+                }}
+              >
                 {media && (
-                    <CardMedia
-                        component={media.type === 'video' ? 'iframe' : 'img'}
-                        src={media.url}
-                        alt={title}
-                        height="300"
-                    />
+                    <Box sx={{ flexGrow: 1 }}>
+                        <CardMedia
+                            component={media.type === 'video' ? 'iframe' : 'img'}
+                            src={media.url}
+                            alt={title}
+                            style={{ width: '100%', height: 'auto' }}
+                        />
+                    </Box>
                 )}
                 <CardContent>
-                {award && (
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, p: 1, backgroundColor: 'rgba(255, 215, 0, 0.1)', borderRadius: 1 }}>
-                    <EmojiEventsIcon sx={{ color: 'gold', mr: 1 }} />
-                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 'bold' }}>
-                      {award}
+                    {award && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, p: 1, backgroundColor: 'rgba(255, 215, 0, 0.1)', borderRadius: 1 }}>
+                            <EmojiEventsIcon sx={{ color: 'gold', mr: 1 }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 'bold' }}>
+                            {award}
+                            </Typography>
+                        </Box>
+                    )}
+                    <Typography variant="h5" mt={2} gutterBottom>
+                        {title}
                     </Typography>
-                  </Box>
-                )}
-                <Typography variant="h5" mt={2} gutterBottom>
-                    {title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" mt={3} paragraph>
-                    {description}
-                </Typography>
-                <Stack direction="row" mt={3} spacing={1} sx={{ flexWrap: 'wrap' }}>
-                    {skills.map((skill: any, index: number) => (
-                        <Chip key={index} label={skill} />
-                    ))}
-                </Stack>
-                <Box mt={3}>
-                    {links.map((link: any, index: number) => (
-                        <Link href={link.url} target="_blank" rel="noopener" key={index} style={{ display: 'block', marginBottom: 5 }}>
-                            {link.title}
-                        </Link>
-                    ))}
-                </Box>
+                    <Typography variant="body2" color="text.secondary" mt={3} paragraph>
+                        {description}
+                    </Typography>
+                    <Stack 
+                        direction="row"
+                        spacing={1} // Space between chips
+                        sx={{ flexWrap: 'wrap' }}
+                    >
+                        {skills.map((skill: any, index: number) => (
+                            <Chip key={index} label={skill} />
+                        ))}
+                    </Stack>
+                    <Box mt={2}>
+                        {links.map((link: any, index: number) => (
+                            <Link href={link.url} target="_blank" rel="noopener" key={index} style={{ display: 'block', marginBottom: 5 }}>
+                                {link.title}
+                            </Link>
+                        ))}
+                    </Box>
                 </CardContent>
             </Card>
         </Grid>
