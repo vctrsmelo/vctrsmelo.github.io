@@ -24,6 +24,7 @@ const Project = ({ project }: { project: ProjectModel }) => {
                             src={media.url}
                             alt={title}
                             style={{ width: '100%', height: 'auto' }}
+                            allowFullScreen
                         />
                     </Box>
                 )}

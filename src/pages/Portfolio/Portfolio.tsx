@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Alert from '@mui/material/Alert';
-import { SocialMediaButtons } from '../../components/SocialMediaButtons'
 import ProjectGrid from './ProjectGrid';
 import ItemsSelector from '../../components/ItemsSelector';
 import { ProjectModel } from './Models';

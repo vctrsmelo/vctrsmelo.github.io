@@ -78,41 +78,6 @@ export default () => {
                                 Awarded Apple WWDC Scholarship
                             </Link>
                         </Typography>
-                        {/* <Box display="flex" flexWrap="wrap" justifyContent="center" mt={4}>
-                            {areas.map((area, index) => (
-                                <Chip
-                                    key={index}
-                                    label={area}
-                                    color="primary"
-                                    style={{ 
-                                        margin: '4px', 
-                                        backgroundColor: '#42a5f5', 
-                                        color: 'white', 
-                                        padding: '6px 12px',
-                                        cursor: 'default' 
-                                    }}
-                                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#e3f2fd'; e.currentTarget.style.color = '#42a5f5'}}
-                                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#42a5f5'; e.currentTarget.style.color = 'white'}}
-                                />
-                            ))}
-                            {technologies.map((tech, index) => (
-                                <Chip
-                                    key={index}
-                                    label={tech}
-                                    variant="outlined"
-                                    color="primary"
-                                    style={{ 
-                                        margin: '4px', 
-                                        color: '#42a5f5',
-                                        borderColor: '#42a5f5',
-                                        padding: '6px 12px',
-                                        cursor: 'default',
-                                    }}
-                                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#e3f2fd'; e.currentTarget.style.color = '#42a5f5'}}
-                                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = ''; e.currentTarget.style.color = '#42a5f5'}}
-                                />
-                            ))}
-                        </Box> */}
                         <SocialMediaButtons mt={4}/>
                     </Box>
                 </Box>
