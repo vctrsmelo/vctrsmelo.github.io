@@ -7,6 +7,15 @@ import { ProjectModel } from './Models';
 
 const projects: ProjectModel[] = [
     {
+        title: 'Time is Money Calculator',
+        media: { type: 'video', url: 'https://www.youtube.com/embed/h82OkNXmF9E' },
+        skills: ['iOS','Swift', 'SwiftUI'],
+        description: "Published iOS app that converts the price of anything from currency to time, using as reference your work schedule and monthly income.",
+        links: [
+            { title: 'App Store', url: 'https://apps.apple.com/us/app/time-is-money-calculator/id1495915563'}, 
+        ],
+    },
+    {
         title: 'Video Filters with Swift + OpenCV',
         media: { type: 'video', url: 'https://www.youtube.com/embed/hCYMPG89HQQ' },
         skills: ['MacOS','Swift', 'OpenCV'],
@@ -61,28 +70,28 @@ const initialSkillsState: Record<string, boolean> = sortedSkills
       return acc
 }, {} as Record<string, boolean>)
 
-const PortfolioAlert = () => {
-  return (
-    <Box my={4}>
-      <Alert
-        severity="info"
-        icon={false}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          backgroundColor: 'rgba(0, 123, 255, 0.1)', // Light blue background for visibility
-          padding: 2,
-          borderRadius: 2,
-        }}
-      >
-        <Typography variant="body1">
-          I'm still working on this page during my free time. Hopefully soon I'll display all my side projects here, but for now feel free to check my Github for other projects.
-        </Typography>
-      </Alert>
-    </Box>
-  );
-};
+// const PortfolioAlert = () => {
+//   return (
+//     <Box my={4}>
+//       <Alert
+//         severity="info"
+//         icon={false}
+//         sx={{
+//           display: 'flex',
+//           alignItems: 'center',
+//           justifyContent: 'space-between',
+//           backgroundColor: 'rgba(0, 123, 255, 0.1)', // Light blue background for visibility
+//           padding: 2,
+//           borderRadius: 2,
+//         }}
+//       >
+//         <Typography variant="body1">
+//           I'm still working on this page during my free time. Hopefully soon I'll display all my side projects here, but for now feel free to check my Github for other projects.
+//         </Typography>
+//       </Alert>
+//     </Box>
+//   );
+// };
 
 export default (props: any) => {
 
@@ -105,7 +114,7 @@ export default (props: any) => {
           <Typography variant="h4" gutterBottom>
               Side Projects
           </Typography>
-          <PortfolioAlert/>
+          {/* <PortfolioAlert/> */}
           <ItemsSelector 
               items={skills} 
               onClickItem={(skill: string) => {

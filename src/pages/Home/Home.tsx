@@ -66,9 +66,9 @@ export default () => {
                             Hi, I'm Victor
                         </Typography>
                         <Typography variant="body1" mt={4}>
-                            Full Stack Developer with a specialization in iOS development and AWS cloud services. Currently contributing to innovative projects at AWS in Ireland.
+                            Full Stack Developer specialized in <b>iOS development</b> and <b>AWS cloud services</b>. Currently contributing to innovative projects at AWS in Ireland.
                         </Typography>
-                        <Typography variant="body2" color="white" textAlign="center" mt={2}>
+                        <Typography variant="body2" color="white" textAlign="center" mt={4}>
                             Bachelor in Computer Science | {' '}
                             <Link href="https://www.credly.com/badges/9692735a-caf4-40d8-b1ed-d11d2292b445/linked_in?t=rx9n99" color="inherit" target="_blank" rel="noopener noreferrer"> 
                                 AWS Certified

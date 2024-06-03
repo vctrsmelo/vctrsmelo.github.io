@@ -1,12 +1,15 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Chip, Typography, Grid, Link, Box, Stack } from '@mui/material';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; 
+import { Apple as AppleIcon } from '@mui/icons-material';
 import { ProjectModel } from './Models';
 
 const Project = ({ project }: { project: ProjectModel }) => {
 
     const { award, title, media, skills, description, links } = project;
 
+    const appStoreLink = links.find(link => link.title === 'App Store')
+    
     return (
         <Grid item xs={12} sm={6} md={4} style={{ display: 'flex'}}>
             <Card
@@ -15,7 +18,7 @@ const Project = ({ project }: { project: ProjectModel }) => {
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     padding: 1,
-                    height: '100%',
+                    height: '100%'
                 }}
               >
                 {media && (
@@ -29,19 +32,30 @@ const Project = ({ project }: { project: ProjectModel }) => {
                         />
                     </Box>
                 )}
-                <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column'}}>
+                <CardContent sx={{ paddingTop: 4, flexGrow: 1, display: 'flex', flexDirection: 'column'}}>
                     {award && (
-                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, p: 1, backgroundColor: 'rgba(255, 215, 0, 0.1)', borderRadius: 1 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, p: 1, backgroundColor: 'rgba(255, 215, 0, 0.1)', borderRadius: 1 }}>
                             <EmojiEventsIcon sx={{ color: 'gold', mr: 1 }} />
                             <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 'bold' }}>
                             {award}
                             </Typography>
                         </Box>
                     )}
-                    <Typography variant="h5" mt={2} gutterBottom>
+                    {appStoreLink && (
+                        <Box sx={{display: 'flex', alignItems: 'center', mb: 2, p: 1, backgroundColor: 'rgba(184, 209, 225, 0.1)', borderRadius: 1 }}>
+                            <AppleIcon sx={{ color: 'lightblue', mr: 1 }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 'bold' }}>
+                            Published on the App Store<br/> 
+                            <Link href={appStoreLink.url} target="_blank" rel="noopener">
+                                Check here
+                            </Link>
+                            </Typography>
+                        </Box>
+                    )}
+                    <Typography variant="h5" gutterBottom>
                         {title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" mt={3} paragraph>
+                    <Typography variant="body2" color="text.secondary" mt={2} paragraph>
                         {description}
                     </Typography>
                     <Box sx={{ mt: 'auto'}}>
