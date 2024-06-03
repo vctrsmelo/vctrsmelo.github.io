@@ -18,11 +18,10 @@ const darkTheme = createTheme({
   },
 });
 
-ReactGA.initialize('G-V0SPGXMVYK')
-
 function App() {
 
   useEffect(() => {
+    ReactGA.initialize('G-V0SPGXMVYK')
     ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   }, []);
 
