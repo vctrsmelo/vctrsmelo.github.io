@@ -66,7 +66,7 @@ export default () => {
                             Hi, I'm Victor
                         </Typography>
                         <Typography variant="body1" mt={4}>
-                            Full Stack Developer specialized in iOS and AWS. Currently working at AWS.
+                            Full Stack Developer with a specialization in iOS development and AWS cloud services. Currently contributing to innovative projects at AWS in Ireland.
                         </Typography>
                         <Typography variant="body2" color="white" textAlign="center" mt={2}>
                             Bachelor in Computer Science | {' '}
