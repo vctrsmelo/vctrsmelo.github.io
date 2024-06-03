@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Alert from '@mui/material/Alert';
+import ReactGA from 'react-ga4'
 import ProjectGrid from './ProjectGrid';
 import ItemsSelector from '../../components/ItemsSelector';
 import { ProjectModel } from './Models';
@@ -115,11 +116,15 @@ export default (props: any) => {
               Side Projects
           </Typography>
           {/* <PortfolioAlert/> */}
-          <ItemsSelector 
+          <ItemsSelector
               items={skills} 
               onClickItem={(skill: string) => {
-                  console.log(`Clicked on ${skill}`)
-                  toggleSkill(skill)
+                toggleSkill(skill)
+                ReactGA.event({
+                  category: 'Skills',
+                  action: 'Click',
+                  label: skill
+                })
               }}
           />
           <ProjectGrid selectedSkills={selectedSkills} projects={projects} mt={2} />

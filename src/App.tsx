@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './pages/Home/Home';
 import { HashRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box, CssBaseline } from '@mui/material';
+import ReactGA from 'react-ga4'
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -17,8 +18,14 @@ const darkTheme = createTheme({
   },
 });
 
+ReactGA.initialize('G-V0SPGXMVYK')
 
 function App() {
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  }, []);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
