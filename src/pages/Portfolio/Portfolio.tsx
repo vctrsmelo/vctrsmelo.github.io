@@ -7,6 +7,15 @@ import { ProjectModel } from './Models';
 
 const projects: ProjectModel[] = [
     {
+        title: 'Video Filters with Swift + OpenCV',
+        media: { type: 'video', url: 'https://www.youtube.com/embed/hCYMPG89HQQ' },
+        skills: ['MacOS','Swift', 'OpenCV'],
+        description: "Project integrating OpenCV with Swift to apply filters in a video. Multiple filters were created and used matrices to apply the desired one. This project was developed while in college.",
+        links: [
+            { title: 'Github', url: 'https://github.com/vctrsmelo/Photochopp'}, 
+        ],
+    },
+    {
         award: 'WWDC 2020 Scholarship Winner',
         title: 'Tic Tac Toe! Humanity VS. AI',
         media: { type: 'video', url: 'https://www.youtube.com/embed/ov_U4okydMo' },

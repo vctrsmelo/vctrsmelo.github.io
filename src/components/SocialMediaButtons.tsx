@@ -11,8 +11,5 @@ export const SocialMediaButtons = (props: any) => (
         <IconButton href="https://github.com/vctrsmelo" target="_blank" rel="noopener" color="inherit">
             <GitHubIcon fontSize="large" />
         </IconButton>
-        <IconButton href="https://leetcode.com/u/vctrsmelo/" target="_blank" rel="noopener" color="inherit">
-            <LeetCodeIcon fontSize="large" />
-        </IconButton>
     </Box>
 );

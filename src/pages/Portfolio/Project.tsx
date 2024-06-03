@@ -8,17 +8,18 @@ const Project = ({ project }: { project: ProjectModel }) => {
     const { award, title, media, skills, description, links } = project;
 
     return (
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} style={{ display: 'flex'}}>
             <Card
                 sx={{
-                    flex: '1 1 30%',
                     display: 'flex',
                     flexDirection: 'column',
-                    padding: 1
+                    justifyContent: 'space-between',
+                    padding: 1,
+                    height: '100%',
                 }}
               >
                 {media && (
-                    <Box sx={{ flexGrow: 1 }}>
+                    <Box>
                         <CardMedia
                             component={media.type === 'video' ? 'iframe' : 'img'}
                             src={media.url}
@@ -28,7 +29,7 @@ const Project = ({ project }: { project: ProjectModel }) => {
                         />
                     </Box>
                 )}
-                <CardContent>
+                <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column'}}>
                     {award && (
                         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, p: 1, backgroundColor: 'rgba(255, 215, 0, 0.1)', borderRadius: 1 }}>
                             <EmojiEventsIcon sx={{ color: 'gold', mr: 1 }} />
@@ -43,16 +44,17 @@ const Project = ({ project }: { project: ProjectModel }) => {
                     <Typography variant="body2" color="text.secondary" mt={3} paragraph>
                         {description}
                     </Typography>
-                    <Stack 
-                        direction="row"
-                        spacing={1} // Space between chips
-                        sx={{ flexWrap: 'wrap' }}
-                    >
-                        {skills.map((skill: any, index: number) => (
-                            <Chip key={index} label={skill} />
-                        ))}
-                    </Stack>
-                    <Box mt={2}>
+                    <Box sx={{ mt: 'auto'}}>
+                        <Stack 
+                            direction="row"
+                            spacing={1} // Space between chips
+                            sx={{ flexWrap: 'wrap' }}
+                            mb={2}
+                        >
+                            {skills.map((skill: any, index: number) => (
+                                <Chip key={index} label={skill} />
+                            ))}
+                        </Stack>
                         {links.map((link: any, index: number) => (
                             <Link href={link.url} target="_blank" rel="noopener" key={index} style={{ display: 'block', marginBottom: 5 }}>
                                 {link.title}
