@@ -122,7 +122,7 @@ export default (props: any) => {
                 toggleSkill(skill)
                 ReactGA.event({
                   category: 'Skills',
-                  action: 'Click',
+                  action: `click_${skill}`,
                   label: skill
                 })
               }}
