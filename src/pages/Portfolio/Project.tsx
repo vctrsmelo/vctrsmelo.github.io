@@ -2,16 +2,15 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Chip, Typography, Grid, Link, Box, Stack } from '@mui/material';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; 
 import { Apple as AppleIcon } from '@mui/icons-material';
-import { ProjectModel } from './Models';
+import { ProjectModel, LinkModel } from './Models';
 
 const Project = ({ project }: { project: ProjectModel }) => {
 
     const { award, title, media, skills, description, links } = project;
-
     const appStoreLink = links.find(link => link.title === 'App Store')
     
     return (
-        <Grid item xs={12} sm={6} md={4} style={{ display: 'flex'}}>
+        <Grid item xs={12} sm={6} md={4} sx={{ display: 'flex'}}>
             <Card
                 sx={{
                     display: 'flex',
@@ -27,8 +26,8 @@ const Project = ({ project }: { project: ProjectModel }) => {
                             component={media.type === 'video' ? 'iframe' : 'img'}
                             src={media.url}
                             alt={title}
-                            style={{ width: '100%', height: 'auto' }}
-                            allowFullScreen
+                            sx={{ width: '100%', height: 'auto' }}
+                            {...(media.type === 'video' && { allowFullScreen: true })}
                         />
                     </Box>
                 )}
@@ -65,12 +64,12 @@ const Project = ({ project }: { project: ProjectModel }) => {
                             sx={{ flexWrap: 'wrap' }}
                             mb={2}
                         >
-                            {skills.map((skill: any, index: number) => (
+                            {skills.map((skill: string, index: number) => (
                                 <Chip key={index} label={skill} />
                             ))}
                         </Stack>
-                        {links.map((link: any, index: number) => (
-                            <Link href={link.url} target="_blank" rel="noopener" key={index} style={{ display: 'block', marginBottom: 5 }}>
+                        {links.map((link: LinkModel, index: number) => (
+                            <Link href={link.url} target="_blank" rel="noopener" key={index} sx={{ display: 'block', mb: 1 }}>
                                 {link.title}
                             </Link>
                         ))}

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Box, Container, Typography } from '@mui/material'
-import Alert from '@mui/material/Alert';
 import ReactGA from 'react-ga4'
 import ProjectGrid from './ProjectGrid';
 import ItemsSelector from '../../components/ItemsSelector';
@@ -53,7 +52,6 @@ const projects: ProjectModel[] = [
     // Add more projects as needed
 ];
 
-
 const skillCounts: { [key: string]: number } = {};
 
   projects.forEach(project => {
@@ -70,29 +68,6 @@ const initialSkillsState: Record<string, boolean> = sortedSkills
       acc[skill[0]] = false
       return acc
 }, {} as Record<string, boolean>)
-
-// const PortfolioAlert = () => {
-//   return (
-//     <Box my={4}>
-//       <Alert
-//         severity="info"
-//         icon={false}
-//         sx={{
-//           display: 'flex',
-//           alignItems: 'center',
-//           justifyContent: 'space-between',
-//           backgroundColor: 'rgba(0, 123, 255, 0.1)', // Light blue background for visibility
-//           padding: 2,
-//           borderRadius: 2,
-//         }}
-//       >
-//         <Typography variant="body1">
-//           I'm still working on this page during my free time. Hopefully soon I'll display all my side projects here, but for now feel free to check my Github for other projects.
-//         </Typography>
-//       </Alert>
-//     </Box>
-//   );
-// };
 
 export default (props: any) => {
 
