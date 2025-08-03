@@ -1,0 +1,69 @@
+<div *ngIf="profile" class="home-container">
+  <section class="profile-section">
+    <div class="profile-header">
+      <img [src]="profile.image" alt="Profile Picture" class="profile-image" />
+      <div class="profile-details">
+        <p class="name">{{ profile?.name }}</p>
+        <p class="title">{{ profile?.title }}</p>
+        <p class="bio">{{ profile?.bio }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-links-section">
+    <div class="social-links">
+      <a *ngFor="let link of profile.socialLinks" [href]="link.url" target="_blank" class="social-button">
+        {{ link.name }}
+      </a>
+    </div>
+  </section>
+
+  <section class="posts-section">
+    <h3>Latest Blog Posts</h3>
+    <div class="posts-content-wrapper">
+      <div class="post-list-vertical">
+        <div *ngFor="let post of posts" class="post-card-vertical">
+          <div class="card-image-wrapper-vertical">
+            <img [src]="post.social_image" [alt]="post.title + ' image'" class="card-image-vertical" />
+          </div>
+          <div class="card-content-vertical">
+            <a [href]="post.url" target="_blank" class="post-title-link">{{ post.title }}</a>
+            <p class="post-summary">{{ post.summary || post.description }}</p>
+          </div>
+        </div>
+      </div>
+      <a href="https://dev.to/vctrsmelo" target="_blank" class="see-more-button">See all blog posts</a>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <h3>Side Projects</h3>
+    <div class="projects-content-wrapper">
+      <div class="project-grid-container">
+        <div *ngFor="let project of projectsWithSafeUrls" class="project-card-grid">
+          <div class="card-image-wrapper">
+            <img 
+              *ngIf="project.media_type === 'image' || project.media_type === 'gif'" 
+              [src]="project.media_url" 
+              [alt]="project.title + ' image'" 
+              class="card-image" 
+            />
+            <iframe 
+              *ngIf="project.media_type === 'youtube'" 
+              [src]="project.media_url" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen 
+              class="card-image"
+            ></iframe>
+          </div>
+          <div class="card-content">
+            <a [href]="project.url" target="_blank" class="project-title-link">{{ project.title }}</a>
+            <p class="project-description">{{ project.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
