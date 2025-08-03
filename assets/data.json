@@ -19,20 +19,6 @@
   },
  "projects": [
     {
-      "title": "Personal Website 2024",
-      "description": "A static website built with React, TypeScript, and Material-UI. It's hosted for free using GitHub Pages, showcasing my front-end development skills.",
-      "url": "https://github.com/vctrsmelo/vctrsmelo.github.io/tree/main",
-      "media_type": "image",
-      "media_url": "assets/images/personal_website_2024.png"
-    },
-    {
-      "title": "Apple Watch Breath Replica",
-      "description": "My implementation of the Apple Watch's 'Breathe' animation in SwiftUI, demonstrating skill in creating complex, fluid user interface animations.",
-      "url": "https://github.com/vctrsmelo/Breathe-Animation-Replica",
-      "media_type": "gif",
-      "media_url": "assets/images/breath.gif"
-    },
-    {
       "title": "Time is Money Calculator",
       "description": "A published iOS app that converts the cost of items from currency to time, based on a user's work schedule and monthly income. It simplifies financial perspective.",
       "url": "https://apps.apple.com/us/app/time-is-money-calculator/id1495915563",
@@ -52,6 +38,20 @@
       "url": "https://www.wwdcscholars.com/s/8B4A9BF6-ED50-47E2-B04F-423D3BD26F8C/2020",
       "media_type": "youtube",
       "media_url": "https://www.youtube.com/embed/ov_U4okydMo"
+    },
+    {
+      "title": "Apple Watch Breath Replica",
+      "description": "My implementation of the Apple Watch's 'Breathe' animation in SwiftUI, demonstrating skill in creating complex, fluid user interface animations.",
+      "url": "https://github.com/vctrsmelo/Breathe-Animation-Replica",
+      "media_type": "gif",
+      "media_url": "assets/images/breath.gif"
+    },
+    {
+      "title": "Personal Website 2024",
+      "description": "A static website built with React, TypeScript, and Material-UI. It's hosted for free using GitHub Pages, showcasing my front-end development skills.",
+      "url": "https://github.com/vctrsmelo/vctrsmelo.github.io/tree/main/old",
+      "media_type": "image",
+      "media_url": "assets/images/personal_website_2024.png"
     }
   ]
 }
