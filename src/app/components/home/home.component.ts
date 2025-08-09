@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { DataService } from '../../data.service';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router'; // We will use this later
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
+declare function fetchDevtoPosts(): Promise<any[]>;
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   projects: any[] = [];
   projectsWithSafeUrls: any[] = [];
 
-  constructor(private dataService: DataService, private sanitizer: DomSanitizer) { }
+  constructor(private dataService: DataService, private sanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
     this.dataService.getData().subscribe({
@@ -40,12 +40,10 @@ export class HomeComponent implements OnInit {
       error: err => console.error('Error fetching static data', err)
     });
 
-    this.dataService.getDevtoPosts('vctrsmelo').subscribe({
-      next: posts => {
-        this.posts = posts.slice(0, 3);
-        // console.log(posts)
-      },
-      error: err => console.error('Error fetching DEV.to posts', err)
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      fetchDevtoPosts().then(posts => {
+        this.posts = posts;
+      });
+    }
   }
 }
