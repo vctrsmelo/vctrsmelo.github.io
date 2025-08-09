@@ -10,6 +10,8 @@ async function fetchDevtoPosts() {
       throw new Error('Network response was not ok');
     }
     const posts = await response.json();
+    console.log('fetched posts:')
+    console.log(posts)
     return posts.slice(0, 5); // Get the first 5 posts
   } catch (error) {
     console.error('Error fetching DEV.to posts:', error);
